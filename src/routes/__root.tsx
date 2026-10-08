@@ -2,6 +2,7 @@ import { createRootRoute } from "@tanstack/react-router";
 import { SuperAdminLayout } from "../Layout";
 import { useEffect, useState } from "react";
 import { supabase, checkIsSuperAdmin } from "../lib/supabase";
+import { DigitolLogo } from "../components/DigitolLogo";
 
 export const Route = createRootRoute({
   component: RootComponent,
@@ -93,19 +94,9 @@ function RootComponent() {
           className="glass-panel"
           style={{ padding: "40px", width: "100%", maxWidth: "400px" }}
         >
-          <h2 style={{ textAlign: "center", marginBottom: "8px" }}>
-            Digitol Admin
-          </h2>
-          <p
-            style={{
-              textAlign: "center",
-              color: "var(--text-muted)",
-              fontSize: "14px",
-              marginBottom: "32px",
-            }}
-          >
-            Restricted access portal
-          </p>
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '32px' }}>
+            <DigitolLogo label="Digitol" sub="Admin" />
+          </div>
 
           <form
             onSubmit={handleLogin}

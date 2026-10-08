@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, Outlet } from "@tanstack/react-router";
+import { DigitolLogo } from "./components/DigitolLogo";
 import {
   Database,
   Settings,
@@ -32,36 +33,7 @@ export function SuperAdminLayout() {
             marginBottom: "40px",
           }}
         >
-          <div
-            style={{
-              padding: "4px",
-              background: "white",
-              borderRadius: "12px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <img
-              src="/logo.svg"
-              alt="Digitol Logo"
-              style={{ width: "32px", height: "32px", objectFit: "contain" }}
-            />
-          </div>
-          <div>
-            <h1 style={{ fontSize: "18px", fontWeight: "bold", margin: 0 }}>
-              Digitol Admin
-            </h1>
-            <p
-              style={{
-                fontSize: "12px",
-                color: "var(--text-muted)",
-                margin: 0,
-              }}
-            >
-              Superuser Portal
-            </p>
-          </div>
+          <DigitolLogo label="Digitol" sub="Admin" />
         </div>
 
         <nav
