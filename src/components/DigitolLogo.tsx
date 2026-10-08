@@ -40,15 +40,20 @@ const MASK = `url("data:image/svg+xml,${encodeURIComponent(MARK)}")`;
 export function DigitolMark({
   gradient = "var(--gradient-brand)",
   className,
+  style,
 }: {
   gradient?: string;
   className?: string;
+  style?: React.CSSProperties;
 }) {
   return (
     <span
       aria-hidden="true"
-      className={`block size-8 animate-gradient ${className || ""}`}
+      className={className}
       style={{
+        display: "block",
+        width: "32px",
+        height: "32px",
         backgroundImage: gradient,
         maskImage: MASK,
         WebkitMaskImage: MASK,
@@ -58,6 +63,7 @@ export function DigitolMark({
         WebkitMaskSize: "contain",
         maskPosition: "center",
         WebkitMaskPosition: "center",
+        ...style,
       }}
     />
   );
@@ -75,12 +81,31 @@ export function DigitolLogo({
   className?: string;
 }) {
   return (
-    <span className={`flex items-center gap-2.5 ${className || ""}`}>
-      <DigitolMark gradient={gradient} className="size-7 shrink-0" />
-      <span className="text-[0.98rem] leading-none font-semibold tracking-tight">
+    <span
+      className={className}
+      style={{ display: "flex", alignItems: "center", gap: "10px" }}
+    >
+      <DigitolMark
+        gradient={gradient}
+        style={{ width: "28px", height: "28px", flexShrink: 0 }}
+      />
+      <span
+        style={{
+          fontSize: "15.68px",
+          lineHeight: 1,
+          fontWeight: 600,
+          letterSpacing: "-0.025em",
+        }}
+      >
         {label}
         {sub ? (
-          <span className="ml-1.5 font-normal text-muted-foreground">
+          <span
+            style={{
+              marginLeft: "6px",
+              fontWeight: 400,
+              color: "var(--text-muted)",
+            }}
+          >
             {sub}
           </span>
         ) : null}
